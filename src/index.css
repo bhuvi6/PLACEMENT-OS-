@@ -1,0 +1,93 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Titillium Web", "Inter", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --color-bg: #07090d;
+  --color-surface: #10141c;
+  --color-surface-2: #171c26;
+  --color-surface-3: #1f2530;
+  --color-border: #242b38;
+  --color-border-hi: #333c4d;
+
+  --color-red: #e10600;
+  --color-red-dim: #8a0400;
+  --color-red-glow: #ff3b30;
+  --color-navy: #1e2f97;
+  --color-yellow: #ffc906;
+
+  --color-text: #eef1f6;
+  --color-text-dim: #9aa3b5;
+  --color-text-faint: #5c6478;
+
+  --color-green: #1fbf75;
+  --color-amber: #ffb020;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  background-image:
+    radial-gradient(circle at 12% 8%, rgba(225, 6, 0, 0.08), transparent 40%),
+    radial-gradient(circle at 88% 92%, rgba(30, 47, 151, 0.10), transparent 45%);
+  background-attachment: fixed;
+}
+
+/* Carbon fiber texture utility */
+.carbon {
+  background-color: var(--color-surface);
+  background-image:
+    repeating-linear-gradient(45deg, rgba(255,255,255,0.025) 0px, rgba(255,255,255,0.025) 1px, transparent 1px, transparent 6px),
+    repeating-linear-gradient(-45deg, rgba(255,255,255,0.02) 0px, rgba(255,255,255,0.02) 1px, transparent 1px, transparent 6px);
+}
+
+.carbon-deep {
+  background-color: var(--color-bg);
+  background-image:
+    repeating-linear-gradient(45deg, rgba(255,255,255,0.02) 0px, rgba(255,255,255,0.02) 1px, transparent 1px, transparent 5px),
+    repeating-linear-gradient(-45deg, rgba(255,255,255,0.015) 0px, rgba(255,255,255,0.015) 1px, transparent 1px, transparent 5px);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-mono-num {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+/* speed-stripe accent bar */
+.stripe-accent {
+  background: linear-gradient(90deg, var(--color-red) 0%, var(--color-red) 60%, var(--color-yellow) 100%);
+}
+
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: var(--color-bg); }
+::-webkit-scrollbar-thumb { background: var(--color-surface-3); border-radius: 8px; border: 2px solid var(--color-bg); }
+::-webkit-scrollbar-thumb:hover { background: var(--color-border-hi); }
+
+* { scrollbar-color: var(--color-surface-3) var(--color-bg); }
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(225, 6, 0, 0.35); }
+  50% { box-shadow: 0 0 0 6px rgba(225, 6, 0, 0); }
+}
+.pulse-glow { animation: pulse-glow 2s ease-out infinite; }
+
+@keyframes shimmer {
+  0% { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}
